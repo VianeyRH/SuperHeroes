@@ -1,12 +1,17 @@
-<h1>
-  Lista  de Super Heroes Cañones
-</h1>
-
+<h1>Listado de Heroes</h1>
+<div *ngIf = " heroeBorrado; else noBorrado ">
+  <h3>Heroe Borrado:  <small>{{heroeBorrado}}</small></h3>
+</div>
+<ng-template #noBorrado>
+  <h3>no ha borrado nada!!!!</h3>
+</ng-template>
+<button (click)="borrarHeroe()">Borrar heroe</button>
+<!--
+ <div *ngIf = " heroeBorrado ">
+  <h3>Heroe Borrado:  <small>{{heroeBorrado}}</small></h3>
+</div>
+-->
 <ul>
-  <ul *ngFor="let heroe of heroes; let i = index">
-    {{ i + 1 }} - {{ heroe }}
-  </ul>
-</ul>
-
-<button (click)="eliminarHeroe()">Borrar heroe</button>
-
+<li *ngFor="let heroe of heroes; let i = index">
+  {{ i + 1 }} - {{ heroe }}
+</li>
